@@ -17,8 +17,7 @@
 *.launch
 .settings/
 *.sublime-workspace
-.angular-cli.json
-.editorconfig
+
 
 
 # IDE - VSCode
