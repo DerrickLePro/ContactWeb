@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Http} from '@angular/http';
+import  "rxjs/add/operator/map";
+import {ContactsService} from '../../services/contacts.service';
 
 @Component({
   selector: 'app-contacts',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contacts.component.css']
 })
 export class ContactsComponent implements OnInit {
-  contact = {name:"Paterson", email:"pat@gmail.com"}
-  constructor() { }
+  pageContacts:any;
+  constructor(private http:Http, public contactService:ContactsService) { }
 
   ngOnInit() {
+    console.log("Initialisation...")
+    this.contactService.getContacts()
+        .subscribe(data=>{
+        this.pageContacts = data;
+      }, error2 => {
+        console.log(error2);
+      })
   }
 
 }
