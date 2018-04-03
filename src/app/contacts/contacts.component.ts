@@ -14,6 +14,7 @@ export class ContactsComponent implements OnInit {
   motCle:string="";
   page:number=1;
   size:number=5;
+  totalElem:number=0;
   pages:any;
   curentIndex:number=0;
   constructor(private http:Http, public contactService:ContactsService) { }
@@ -27,6 +28,9 @@ export class ContactsComponent implements OnInit {
       .subscribe(data=>{
         this.pageContacts = data;
         this.pages = new Array(data.totalPages);
+        this.totalElem = this.pages.size;
+        console.log("Max size" + this.totalElem);
+
       }, error2 => {
         console.log(error2);
       })
@@ -34,5 +38,9 @@ export class ContactsComponent implements OnInit {
   chercher(){
     this.doSearch();
   }
+
+
+
+
 
 }

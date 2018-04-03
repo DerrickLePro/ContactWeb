@@ -7,7 +7,7 @@
          <div class="card-body">
            <div class="form-group">
              <label>Mot clé:</label>
-             <input type="text" [(ngModel)]="motCle">
+
              <button class="btn btn-primary" (click)="chercher()">Chercher</button>
            </div>
            <table class="table table-striped">
@@ -23,16 +23,16 @@
            </table>
            <div class="card">
 
-
-              <!-- <li *ngFor="let p of pages, let i =index" class="page-item">
-                 <a class="page-link">{{i}}</a>
-               </li> -->
              <p>Restricted size with rotation and no ellipses:</p>
-             <app-contacts [collectionSize]="120" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></app-contacts>
+             <ngb-pagination [collectionSize]="totalElem" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
 
              <hr>
 
              <pre>Current page: {{page}}</pre>
+              <!-- <li *ngFor="let p of pages, let i =index" class="page-item">
+                 <a class="page-link">{{i}}</a>
+               </li> -->
+
 
 
            </div>
