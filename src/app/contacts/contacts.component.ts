@@ -3,6 +3,7 @@ import {Http} from '@angular/http';
 import  "rxjs/add/operator/map";
 import {ContactsService} from '../../services/contacts.service';
 
+
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
@@ -11,7 +12,7 @@ import {ContactsService} from '../../services/contacts.service';
 export class ContactsComponent implements OnInit {
   pageContacts:any;
   motCle:string="";
-  page:number=0;
+  page:number=1;
   size:number=5;
   pages:any;
   curentIndex:number=0;
