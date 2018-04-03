@@ -28,8 +28,8 @@ export class ContactsComponent implements OnInit {
       .subscribe(data=>{
         this.pageContacts = data;
         this.pages = new Array(data.totalPages);
-        this.totalElem = this.pages.size;
-        console.log("Max size" + this.totalElem);
+        this.totalElem = data.totalPages;
+        console.log("Max size " + this.totalElem);
 
       }, error2 => {
         console.log(error2);
