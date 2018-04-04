@@ -26,7 +26,7 @@ idContact:number;
       })
   }
   updateContact(){
-    this.contactService.saveContact(this.contact)
+    this.contactService.updateContact(this.contact)
       .subscribe(data=>{
         this.contact = data;
       }, error2 => {

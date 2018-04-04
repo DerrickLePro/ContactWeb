@@ -23,5 +23,9 @@ export  class  ContactsService{
       .map(resp=>resp.json());
   }
 
+  updateContact(contact:Contact){
+    return this.http.put("http://localhost:8080/contacts/"+contact.id,contact)
+      .map(resp=>resp.json());
+  }
 
 }
