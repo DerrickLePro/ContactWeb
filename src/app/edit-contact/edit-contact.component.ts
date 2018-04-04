@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Contact} from '../../model/model.contact';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ContactsService} from '../../services/contacts.service';
+import {Alert} from 'selenium-webdriver';
 
 @Component({
   selector: 'app-edit-contact',
@@ -13,7 +14,8 @@ mode:number=1;
 contact:Contact = new Contact();
 idContact:number;
   constructor(public activatedRoute:ActivatedRoute,
-              public  contactService:ContactsService) {
+              public  contactService:ContactsService,
+              public router:Router) {
           this.idContact = activatedRoute.snapshot.params['id'];
   }
 
@@ -29,8 +31,11 @@ idContact:number;
     this.contactService.updateContact(this.contact)
       .subscribe(data=>{
         this.contact = data;
+        alert("Update ok")
+        this.router.navigate(['contacts'])
       }, error2 => {
         console.log(error2);
+        alert("Update error");
       })
   }
 }
