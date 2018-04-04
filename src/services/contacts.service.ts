@@ -17,4 +17,11 @@ export  class  ContactsService{
     return this.http.post("http://localhost:8080/contacts", contact)
       .map(resp=>resp.json());
   }
+
+  getContact(id:number){
+    return this.http.get("http://localhost:8080/contacts/"+id)
+      .map(resp=>resp.json());
+  }
+
+
 }
