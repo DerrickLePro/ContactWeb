@@ -3,7 +3,7 @@
     <div class="col">
 
        <div class="card">
-         <div class="card-header">Liste des contacts</div>
+         <div class="card text-white bg-primary mb-3 card-header">Liste des contacts</div>
          <div class="card-body">
            <div class="form-group">
              <label>Mot clé:</label>
@@ -21,15 +21,11 @@
                <td>{{c.email}}</td>
              </tr>
            </table>
-           <div class="container">
-             <p>Restricted size with rotation and no ellipses:</p>
+           <div class="container" *ngIf="mode==1">
              <ngb-pagination [(collectionSize)]="collectSize" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" (click)="gotoPage(page)" ></ngb-pagination>
-             <hr>
-             <pre>Current page: {{page}}</pre>
            </div>
          </div>
        </div>
-
     </div>
   </div>
 

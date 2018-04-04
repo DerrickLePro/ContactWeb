@@ -14,10 +14,12 @@ export class ContactsComponent implements OnInit {
   motCle:string="";
   currentPage:number=0;
   size:number=5;
-  totalElem:number=0;
+  totalPage:number=0;
   pages:any;
   page:number=1;
   collectSize:number=0;
+  mode:number=0;
+  currentIndex:number=0;
   constructor(private http:Http, public contactService:ContactsService) { }
 
   ngOnInit() {
@@ -31,7 +33,8 @@ export class ContactsComponent implements OnInit {
       .subscribe(data=>{
         this.pageContacts = data;
         this.pages = new Array(data.totalPages);
-        this.collectSize = data.totalPages * 10;
+        this.collectSize = (data.totalPages) * 10;
+        this.totalPage = data.totalPages;
         console.log("Max size " + this.collectSize);
 
       }, error2 => {
@@ -40,11 +43,16 @@ export class ContactsComponent implements OnInit {
   }
   chercher(){
     this.doSearch();
+    this.mode=1;
   }
 
 
   gotoPage(i:number){
-  this.currentPage = i;
+   this.currentIndex = i - 1;
+   if(this.currentIndex<0){
+     this.currentIndex = 0;
+   }
+  this.currentPage = this.currentIndex;
   this.doSearch();
   }
 
