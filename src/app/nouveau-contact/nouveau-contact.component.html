@@ -1,0 +1,31 @@
+<div class="container spacer">
+  <div class="card">
+    <div class="card card-header text-white bg-primary mb-3">Saisie d'un contact</div>
+    <div class="card card-body">
+      <form #f="ngForm" (ngSubmit)="onSaveContact(f.value)">
+        <div class="form-group">
+          <label class="custom-control-label"><strong>Nom:</strong></label>
+          <input class="form-control" type="text" ngModel name="nom" required placeholder="nom">
+        </div>
+        <div class="form-group">
+          <label class="custom-control-label"><strong>Prénom:</strong></label>
+          <input class="form-control" type="text" ngModel name="prenom" required placeholder="prenom">
+        </div>
+        <div class="form-group">
+          <label class="custom-control-label"><strong>Email:</strong></label>
+          <input class="form-control" type="text" ngModel name="email" required email>
+        </div>
+        <div class="form-group">
+          <label class="custom-control-label"><strong>Date naissance:</strong></label>
+          <input class="form-control" type="date" ngModel name="dateNaissance" required>
+        </div>
+        <div class="form-group">
+          <label class="custom-control-label"><strong>Tel:</strong></label>
+          <input class="form-control" type="text" ngModel name="tel" required>
+        </div>
+        <button [disabled]="!f.valid"  type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+
+</div>

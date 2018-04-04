@@ -11,12 +11,15 @@ import {ContactsService} from '../services/contacts.service';
 import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NewContactComponent } from './new-contact/new-contact.component';
+import { NouveauContactComponent } from './nouveau-contact/nouveau-contact.component';
+import { EditContactComponent } from './edit-contact/edit-contact.component';
 
 
 const appRoutes:Routes = [
   {path:'about', component:AboutComponent},
   {path:'contacts', component:ContactsComponent},
   {path:'new-contact', component:NewContactComponent},
+  {path:'editContact/:id', component:EditContactComponent},
   {path:'', redirectTo:'/about',pathMatch:'full'}
   ];
 
@@ -25,7 +28,9 @@ const appRoutes:Routes = [
     AppComponent,
     ContactsComponent,
     AboutComponent,
-    NewContactComponent
+    NewContactComponent,
+    NouveauContactComponent,
+    EditContactComponent
 
   ],
   imports: [
