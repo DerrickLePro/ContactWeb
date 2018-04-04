@@ -1,7 +1,7 @@
 <div class="container spacer">
   <div class="row">
     <div class="col">
-      <div class="jumbotron">
+
        <div class="card">
          <div class="card-header">Liste des contacts</div>
          <div class="card-body">
@@ -21,22 +21,15 @@
                <td>{{c.email}}</td>
              </tr>
            </table>
-           <div class="card">
-
-             <ngb-pagination [collectionSize]="totalElem" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
-
+           <div class="container">
+             <p>Restricted size with rotation and no ellipses:</p>
+             <ngb-pagination [(collectionSize)]="collectSize" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" (click)="gotoPage(page)" ></ngb-pagination>
              <hr>
-
-             <pre class="border-right">Current page: {{page}}</pre>
-              <!-- <li *ngFor="let p of pages, let i =index" class="page-item">
-                 <a class="page-link">{{i}}</a>
-               </li> -->
-
-
+             <pre>Current page: {{page}}</pre>
            </div>
          </div>
        </div>
-      </div>
+
     </div>
   </div>
 
