@@ -22,6 +22,9 @@
                <td>
                  <a (click)="onEditContact(c.id)" class="clickable" >Edit</a>
                </td>
+               <td>
+                 <a (click)="onDeleteContact(c)" class="clickable" >Delete</a>
+               </td>
              </tr>
            </table>
            <div class="container" *ngIf="mode==1">

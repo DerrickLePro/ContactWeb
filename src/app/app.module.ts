@@ -1,4 +1,4 @@
-import  { BrowserModule } from '@angular/platform-browser';
+import   { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
@@ -13,7 +13,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NewContactComponent } from './new-contact/new-contact.component';
 import { NouveauContactComponent } from './nouveau-contact/nouveau-contact.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
-import { FormDataUploadComponent } from './form-data-upload/form-data-upload.component';
 
 
 const appRoutes:Routes = [
@@ -31,8 +30,7 @@ const appRoutes:Routes = [
     AboutComponent,
     NewContactComponent,
     NouveauContactComponent,
-    EditContactComponent,
-    FormDataUploadComponent
+    EditContactComponent
 
   ],
   imports: [
