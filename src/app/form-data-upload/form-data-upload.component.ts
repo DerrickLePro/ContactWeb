@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {CommonService} from '../../services/common.service';
 
 @Component({
   selector: 'app-form-data-upload',
@@ -7,29 +7,36 @@ import {FormGroup} from '@angular/forms';
   styleUrls: ['./form-data-upload.component.css']
 })
 export class FormDataUploadComponent implements OnInit {
-  private fb: FormGroup;
+  constructor(private _service: CommonService) { }
 
-  contructo(fb: FormGroup){
-    this.fb = this.fb;
-  }
+  upload(event: any) {
+    let files = event.target.files;
+    let fData: FormData = new FormData;
 
-  //fVals comes from HTML Form -> (ngSubmit)="postImage(form.value)"
-  postImage(fVals){
-    let body = new FormData();
-    body.append('file', formValues.file);
-
-    let httpRequest = httpclient.post(url, body);
-    httpRequest.subscribe((response) =>{
-      //..... handle response here
-    },(error) => {
-      //.....handle errors here
-    });
-  }
-
-  onFileChange(event) {
-    if(event.target.files.length > 0) {
-      let file = event.target.files[0];
-      this.form.get('file').setValue(file);
+    for (var i = 0; i < files.length; i++) {
+      fData.append("file[]", files[i]);
     }
+    var _data = {
+      filename: 'Sample File',
+      id: '0001'
+    }
+
+    fData.append("data", JSON.stringify(_data));
+
+    this._service.uploadFile(fData).subscribe(
+      response => this.handleResponse(response),
+      error => this.handleError(error)
+    )
   }
+  handleResponse(response: any) {
+    console.log(response);
+  }
+  handleError(error: string) {
+    console.log(error);
+  }
+
+
+  ngOnInit() {
+  }
+
 }

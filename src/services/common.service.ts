@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 
 @Injectable()
-export class commonService {
+export class CommonService {
   _url: string;
   constructor(private http: Http) { }
 
