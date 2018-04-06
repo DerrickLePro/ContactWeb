@@ -13,6 +13,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NewContactComponent } from './new-contact/new-contact.component';
 import { NouveauContactComponent } from './nouveau-contact/nouveau-contact.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
+import { ImageTestComponent } from './image-test/image-test.component';
 
 
 const appRoutes:Routes = [
@@ -30,7 +31,8 @@ const appRoutes:Routes = [
     AboutComponent,
     NewContactComponent,
     NouveauContactComponent,
-    EditContactComponent
+    EditContactComponent,
+    ImageTestComponent
 
   ],
   imports: [
