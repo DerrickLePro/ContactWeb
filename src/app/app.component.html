@@ -1,10 +1,30 @@
-
-<div class = "container spacer">
-    <button routerLink="/about" class = "btn btn-primary">About</button>
-    <button routerLink="/contacts" class = "btn btn-primary">Contacts</button>
-  <button routerLink="/new-contact" class = "btn btn-primary">Nouveau Contact</button>
+<div class="container spacer">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contacts" >Contacts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/new-contact">New Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about">About</a>
+        </li>
+      </ul>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
 </div>
-<div class=""></div>
+<div></div>
 <router-outlet>
 
 </router-outlet>
+

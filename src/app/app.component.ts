@@ -1,4 +1,5 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
+
 
 
 @Component({
@@ -7,5 +8,4 @@ import {Component, ViewChild} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
 }
