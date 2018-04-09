@@ -14,12 +14,17 @@ import { NewContactComponent } from './new-contact/new-contact.component';
 import { NouveauContactComponent } from './nouveau-contact/nouveau-contact.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
 import { ImageTestComponent } from './image-test/image-test.component';
+import { DetailsUploadComponent } from './details-upload/details-upload.component';
+import { FormUploadComponent } from './form-upload/form-upload.component';
+import { ListUploadComponent } from './list-upload/list-upload.component';
+import {HttpClientModule} from '@angular/common/http';
+import {UploadFileService} from '../services/upload-file.service';
 
 
 const appRoutes:Routes = [
   {path:'about', component:AboutComponent},
   {path:'contacts', component:ContactsComponent},
-  {path:'new-contact', component:NewContactComponent},
+  {path:'new-contact', component:ImageTestComponent},
   {path:'editContact/:id', component:EditContactComponent},
   {path:'', redirectTo:'/about',pathMatch:'full'}
   ];
@@ -32,14 +37,17 @@ const appRoutes:Routes = [
     NewContactComponent,
     NouveauContactComponent,
     EditContactComponent,
-    ImageTestComponent
+    ImageTestComponent,
+    DetailsUploadComponent,
+    FormUploadComponent,
+    ListUploadComponent
 
   ],
   imports: [
     BrowserModule,  RouterModule.forRoot(appRoutes), HttpModule, FormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(), HttpClientModule
   ],
-  providers: [ContactsService],
+  providers: [ContactsService, UploadFileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

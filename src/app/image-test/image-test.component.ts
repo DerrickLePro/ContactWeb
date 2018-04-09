@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component,  OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-image-test',
@@ -6,12 +6,17 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./image-test.component.css']
 })
 export class ImageTestComponent implements OnInit {
-
   constructor() { }
+  title = 'Upload Image';
+  description = 'Test upload files';
+
 
   ngOnInit() {
-  }
 
+  }
+public uploadImage(){
+
+}
 
 
 
