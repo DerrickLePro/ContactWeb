@@ -21,12 +21,13 @@ import {HttpClientModule} from '@angular/common/http';
 import {UploadFileService} from '../services/upload-file.service';
 import {UploadImageService} from '../services/upload-image.service';
 import { UploadImgeComponent } from './upload-imge/upload-imge.component';
+import {FormDataUploadComponent} from './form-data-upload/form-data-upload.component';
 
 
 const appRoutes:Routes = [
   {path:'about', component:AboutComponent},
   {path:'contacts', component:ContactsComponent},
-  {path:'new-contact', component:NewContactComponent},
+  {path:'new-contact', component:FormDataUploadComponent},
   {path:'editContact/:id', component:EditContactComponent},
   {path:'', redirectTo:'/about',pathMatch:'full'}
   ];
