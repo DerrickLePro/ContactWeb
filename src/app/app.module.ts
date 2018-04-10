@@ -19,12 +19,14 @@ import { FormUploadComponent } from './form-upload/form-upload.component';
 import { ListUploadComponent } from './list-upload/list-upload.component';
 import {HttpClientModule} from '@angular/common/http';
 import {UploadFileService} from '../services/upload-file.service';
+import {UploadImageService} from '../services/upload-image.service';
+import { UploadImgeComponent } from './upload-imge/upload-imge.component';
 
 
 const appRoutes:Routes = [
   {path:'about', component:AboutComponent},
   {path:'contacts', component:ContactsComponent},
-  {path:'new-contact', component:ImageTestComponent},
+  {path:'new-contact', component:NewContactComponent},
   {path:'editContact/:id', component:EditContactComponent},
   {path:'', redirectTo:'/about',pathMatch:'full'}
   ];
@@ -40,14 +42,15 @@ const appRoutes:Routes = [
     ImageTestComponent,
     DetailsUploadComponent,
     FormUploadComponent,
-    ListUploadComponent
+    ListUploadComponent,
+    UploadImgeComponent
 
   ],
   imports: [
     BrowserModule,  RouterModule.forRoot(appRoutes), HttpModule, FormsModule,
     NgbModule.forRoot(), HttpClientModule
   ],
-  providers: [ContactsService, UploadFileService],
+  providers: [ContactsService, UploadFileService, UploadImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

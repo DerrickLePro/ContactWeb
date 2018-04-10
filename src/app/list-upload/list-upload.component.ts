@@ -9,9 +9,10 @@ import {UploadFileService} from '../../services/upload-file.service';
   styleUrls: ['./list-upload.component.css']
 })
 export class ListUploadComponent implements OnInit {
-  showFile = false
-  fileUploads: Observable<Object>
+  showFile = false;
+  fileUploads: Observable<Object>;
 
+  fileUpload:any ;
   constructor(private uploadService: UploadFileService) {}
 
   ngOnInit() {
@@ -23,5 +24,9 @@ export class ListUploadComponent implements OnInit {
     if (enable) {
       this.fileUploads = this.uploadService.getFiles();
     }
+  }
+
+  show1File(fileName: string){
+    this.fileUpload = this.uploadService.getFile(fileName);
   }
 }

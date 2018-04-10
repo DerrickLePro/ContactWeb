@@ -4,6 +4,9 @@ import  "rxjs/add/operator/map";
 import {ContactsService} from '../../services/contacts.service';
 import {Router} from '@angular/router';
 import {Contact} from '../../model/model.contact';
+import {UploadFileService} from '../../services/upload-file.service';
+import {Observable} from 'rxjs/Observable';
+import {forEach} from '@angular/router/src/utils/collection';
 
 
 @Component({
@@ -23,8 +26,11 @@ export class ContactsComponent implements OnInit {
   collectSize:number=0;
   mode:number=0;
   currentIndex:number=0;
+
+  fileUpload: Observable<Object> ;
   constructor(private http:Http, public contactService:ContactsService,
-              public  router:Router) { }
+              public  router:Router,
+              private uploadService: UploadFileService) { }
 
   ngOnInit() {
 
@@ -96,6 +102,16 @@ export class ContactsComponent implements OnInit {
           console.log(error2);
         });
     }
+  }
+
+
+  getImage(fileName:string): any{
+    this.fileUpload = this.uploadService.getFile(fileName);
+    this.fileUpload.forEach(etm=>{
+      console.log(etm)
+      return etm;
+    });
+
   }
 
 

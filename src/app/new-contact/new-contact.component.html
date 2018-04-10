@@ -25,6 +25,10 @@
           <label class="custom-control-label">Tel:</label>
           <input class="form-control" type="text" [(ngModel)]="contact.tel">
         </div>
+        <div class="form-group">
+          <label class="custom-control-label">Photo:</label>
+          <input type="file" (change)="selectFile($event)">
+        </div>
         <button class="btn btn-primary" (click)="saveContact()">Save</button>
       </div>
     </div>
@@ -58,6 +62,10 @@
         <div class="form-group">
           <label class="custom-control-label">Tel:</label>
           <label >{{contact.tel}}</label>
+        </div>
+        <div class="form-group" *ngFor="let file of file1Upload | async">
+          <label class="custom-control-label">Photo:</label>
+          <img src="{{file}}" alt="{{file}}" height="100" width="100"/>
         </div>
         <button class="btn btn-primary" (click)="mode = 1">Nouveau Contact</button>
       </div>

@@ -5,6 +5,7 @@ export  class Contact{
   email:string=""
   dateNaissance:Date;
   tel:number=0;
+  photo:string="";
 
   constructor(){  }
 

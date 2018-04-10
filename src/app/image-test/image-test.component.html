@@ -14,5 +14,9 @@
 
 <div class="container">
   <h4>Upload Image</h4>
-  <input type="file" class="form-control-file" [(ngModel)]="file" >
+  <label class="btn btn-default">
+    <input type="file" (change)="selectFile($event)">
+  </label>
+  <button class="btn btn-success" [disabled]="!selectedFiles"
+          (click)="upload()">Upload</button>
 </div>
