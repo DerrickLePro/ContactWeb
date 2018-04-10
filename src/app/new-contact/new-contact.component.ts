@@ -33,7 +33,7 @@ export class NewContactComponent implements OnInit {
     console.log(this.contact.photo);
     this.contactService.saveContact(this.contact)
       .subscribe(data=>{
-        this.show1File(this.contact.photo);
+        console.log(this.contact.photo);
        this.mode = 2;
 
        this.contact = data;
@@ -59,13 +59,12 @@ export class NewContactComponent implements OnInit {
     this.progress.percentage = 0;
 
     this.currentFileUpload = this.selectedFiles.item(0)
-
+    this.contact.phossto = this.currentFileUpload.name;
     this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
       if (event.type === HttpEventType.UploadProgress) {
         this.progress.percentage = Math.round(100 * event.loaded / event.total);
       } else if (event instanceof HttpResponse) {
         console.log('File is completely uploaded!');
-        this.contact.photo = this.currentFileUpload.name;
       }
     })
 
